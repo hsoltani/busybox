@@ -1,19 +1,19 @@
 apiVersion: v1
-name: odoo
-version: 14.0.8
+name: busybox
+version: 0.1.0
 appVersion: 13.0.20200610
-description: A suite of web based open source business apps.
-home: https://www.odoo.com/
-icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-110x117.png
+description:  A utility chart to verify clusters and processes
+home: https://www.busybox.net/
+icon: https://www.busybox.net/images/busybox1.png
 keywords:
-- odoo
-- crm
-- www
-- http
-- web
+  - busybox 
+  - testing 
+  - sanity check
+  - network
+  - connectivity
 sources:
 - https://github.com/bitnami/bitnami-docker-odoo
 maintainers:
-- name: Bitnami
-  email: containers@bitnami.com
+- name: Soltani
+  email: h.soltani@khallagh.com
 engine: gotpl
