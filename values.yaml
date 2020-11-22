@@ -12,6 +12,7 @@
 ## ref: https://hub.docker.com/r/bitnami/odoo/tags/
 ##
 image:
+  registry: docker.io
   repository: busybox
   tag: 1.28
   ## Specify a imagePullPolicy
