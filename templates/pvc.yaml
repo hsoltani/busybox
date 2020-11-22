@@ -2,10 +2,10 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "explorer.fullname" . }}
+  name: {{ template "busybox.fullname" . }}
   labels:
-    app: {{ template "explorer.name" . }}
-    chart: {{ template "explorer.chart" . }}
+    app: {{ template "busybox.name" . }}
+    chart: {{ template "busybox.chart" . }}
     release: {{ .Release.Name | quote }}
     heritage: {{ .Release.Service | quote }}
 spec:
@@ -14,5 +14,5 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.size | quote }}
-  {{ include "explorer.storageClass" . }}
+  {{ include "busybox.storageClass" . }}
 {{- end -}}
