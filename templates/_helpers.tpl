@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "explorer.name" -}}
+{{- define "busybox.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -10,7 +10,7 @@ Expand the name of the chart.
 Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
-{{- define "explorer.fullname" -}}
+{{- define "busybox.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -23,25 +23,19 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- end -}}
 {{- end -}}
 
-{{/*
-Create a default fully qualified app name.
-We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
-*/}}
-{{- define "explorer.postgresql.fullname" -}}
-{{- printf "%s-%s" .Release.Name "postgresql" | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
+
 
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "explorer.chart" -}}
+{{- define "busybox.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
 Return the proper Odoo image name
 */}}
-{{- define "explorer.image" -}}
+{{- define "busybox.image" -}}
 {{- $registryName := .Values.image.registry -}}
 {{- $repositoryName := .Values.image.repository -}}
 {{- $tag := .Values.image.tag | toString -}}
@@ -64,7 +58,7 @@ Also, we can't use a single if because lazy evaluation is not an option
 {{/*
 Return the proper Docker Image Registry Secret Names
 */}}
-{{- define "explorer.imagePullSecrets" -}}
+{{- define "busybox.imagePullSecrets" -}}
 {{/*
 Helm 2.11 supports the assignment of a value to a variable defined in a different scope,
 but Helm 2.9 and 2.10 does not support it, so we need to implement this if-else logic.
@@ -93,7 +87,7 @@ imagePullSecrets:
 {{/*
 Return  the proper Storage Class
 */}}
-{{- define "explorer.storageClass" -}}
+{{- define "busybox.storageClass" -}}
 {{/*
 Helm 2.11 supports the assignment of a value to a variable defined in a different scope,
 but Helm 2.9 and 2.10 does not support it, so we need to implement this if-else logic.
@@ -128,7 +122,7 @@ but Helm 2.9 and 2.10 does not support it, so we need to implement this if-else 
 {{/*
 Return the appropriate apiVersion for deployment.
 */}}
-{{- define "explorer.deployment.apiVersion" -}}
+{{- define "busybox.deployment.apiVersion" -}}
 {{- if semverCompare "<1.14-0" .Capabilities.KubeVersion.GitVersion -}}
 {{- print "extensions/v1beta1" -}}
 {{- else -}}
