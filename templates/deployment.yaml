@@ -56,7 +56,7 @@ spec:
 {{ toYaml .Values.resources | indent 10 }}
         volumeMounts:
         - name: busybox-data
-          mountPath: /data
+          mountPath: /bitnami/busybox
        
         
       volumes:
