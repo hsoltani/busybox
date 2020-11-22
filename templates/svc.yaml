@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "explorer.fullname" . }}
+  name: {{ template "busybox.fullname" . }}
   labels:
-    app: {{ template "explorer.name" . }}
-    chart: {{ template "explorer.chart" . }}
+    app: {{ template "busybox.name" . }}
+    chart: {{ template "busybox.chart" . }}
     release: {{ .Release.Name | quote }}
     heritage: {{ .Release.Service | quote }}
 spec:
@@ -23,5 +23,5 @@ spec:
     nodePort: {{ .Values.service.nodePort }}
     {{- end }}
   selector:
-    app: {{ template "explorer.name" . }}
+    app: {{ template "busybox.name" . }}
     release: {{ .Release.Name | quote }}
