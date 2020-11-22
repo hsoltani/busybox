@@ -55,19 +55,8 @@ spec:
         resources:
 {{ toYaml .Values.resources | indent 10 }}
         volumeMounts:
-        - name: busybox-data
-          mountPath: /bitnami/busybox
+        
        
         
       volumes:
-      - name: busybox-data
-      {{- if .Values.persistence.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ .Values.persistence.existingClaim | default (include "busybox.fullname" .) }}
-      {{- else }}
-        emptyDir: {}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-{{ toYaml . | indent 8 }}
-      {{- end }}
+     
