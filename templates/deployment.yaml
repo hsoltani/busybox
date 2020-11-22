@@ -24,7 +24,7 @@ spec:
       - name: {{ template "busybox.fullname" . }}
         image: {{ template "busybox.image" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-        command: ["yum -y install python-pip"]
+        command:
         env:
 
         ports:
