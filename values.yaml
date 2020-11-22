@@ -13,7 +13,7 @@
 ##
 image:
   registry: docker.io
-  repository: hyperledger/explorer
+  repository: busybox
   tag: latest
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -59,53 +59,6 @@ image:
 # smtpPassword:
 # smtpProtocol:
 
-externalDatabase:
-## All of these values are only used when postgresql.enabled is set to false
-  ## Database host
-  host: odoo-postgresql
-
-  ## non-root Username for Odoo database
-  user: hppoc
-
-  ## Database password
-  password: password
-
-  ## Database port number
-  port: 5432
-
-##
-## PostgreSQL chart configuration
-##
-## https://github.com/bitnami/charts/blob/master/bitnami/postgresql/values.yaml
-##
-postgresql:
-  enabled: true
-  ## PostgreSQL password
-  ## ref: https://hub.docker.com/_/postgres/
-  ##
-  postgresqlUsername: hppoc
-  postgresqlPassword: password
-
-  ## Enable persistence using Persistent Volume Claims
-  ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
-  ##
-  persistence:
-    enabled: true
-    ## If you want to reuse an existing claim, you can pass the name of the PVC using
-    ## the existingClaim variable
-    ##
-    # existingClaim: your-claim
-
-    ## postgresql data Persistent Volume Storage Class
-    ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
-    ## If undefined (the default) or set to null, no storageClassName spec is
-    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-    ##   GKE, AWS & OpenStack)
-    ##
-    # storageClass: "-"
-    accessMode: ReadWriteOnce
-    size: 8Gi
 
 ## Kubernetes svc configuration
 ## For minikube, set this to NodePort, elsewhere use LoadBalancer
